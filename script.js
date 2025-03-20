@@ -4,11 +4,12 @@ let articles = [];
 // Función para mostrar los artículos en la página
 function displayArticles() {
     const articlesContainer = document.getElementById("articles");
+    const showFormButton = document.getElementById("showFormButton");
 
     if (articles.length === 0) {
-        articlesContainer.classList.add("hidden"); // Oculta el contenedor si no hay artículos
+        // Si no hay artículos, muestra un mensaje
+        articlesContainer.innerHTML = "<p>No hay artículos disponibles. Haz clic en 'Agregar Artículo' para añadir uno.</p>";
     } else {
-        articlesContainer.classList.remove("hidden"); // Muestra el contenedor si hay artículos
         articlesContainer.innerHTML = ""; // Limpia el contenedor antes de renderizar
         articles
             .sort((a, b) => new Date(b.date) - new Date(a.date)) // Ordena los artículos por fecha
@@ -25,6 +26,9 @@ function displayArticles() {
                 articlesContainer.innerHTML += articleCard;
             });
     }
+
+    // Asegura que el botón "Agregar Artículo" esté visible
+    showFormButton.classList.remove("hidden");
 }
 
 // Función para capturar un nuevo artículo
@@ -65,4 +69,10 @@ form.addEventListener("submit", event => {
     addArticle(title, image, description, author, date);
     form.reset(); // Limpia los campos del formulario
     formContainer.style.display = "none"; // Oculta el formulario
+});
+
+// Mostrar los artículos al cargar la página
+document.addEventListener("DOMContentLoaded", () => {
+    formContainer.style.display = "none"; // Asegura que el formulario esté oculto al cargar
+    displayArticles(); // Carga los artículos (si los hay)
 });
