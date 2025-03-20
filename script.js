@@ -1,6 +1,21 @@
 // Lista para almacenar los artículos
 let articles = [];
 
+// Función para cargar artículos desde LocalStorage
+function loadArticles() {
+    const storedArticles = localStorage.getItem("articles"); // Obtén los datos del almacenamiento
+    if (storedArticles) {
+        articles = JSON.parse(storedArticles); // Convierte los datos a un array
+    } else {
+        articles = []; // Si no hay datos, inicia con un array vacío
+    }
+}
+
+// Función para guardar artículos en LocalStorage
+function saveArticles() {
+    localStorage.setItem("articles", JSON.stringify(articles)); // Guarda los datos como un string
+}
+
 // Función para mostrar los artículos en la página
 function displayArticles() {
     const articlesContainer = document.getElementById("articles");
@@ -35,6 +50,7 @@ function displayArticles() {
 function addArticle(title, image, description, author, date) {
     const newArticle = { title, image, description, author, date };
     articles.push(newArticle); // Agrega el artículo al array
+    saveArticles(); // Guarda los artículos en LocalStorage
     displayArticles(); // Actualiza la vista
 }
 
@@ -73,6 +89,7 @@ form.addEventListener("submit", event => {
 
 // Mostrar los artículos al cargar la página
 document.addEventListener("DOMContentLoaded", () => {
+    loadArticles(); // Carga los artículos desde LocalStorage
     formContainer.style.display = "none"; // Asegura que el formulario esté oculto al cargar
-    displayArticles(); // Carga los artículos (si los hay)
+    displayArticles(); // Muestra los artículos (si los hay)
 });

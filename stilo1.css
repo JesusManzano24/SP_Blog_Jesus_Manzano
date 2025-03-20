@@ -87,3 +87,30 @@ button:hover {
 .hidden {
     display: none;
 }
+/* Estilo para las imágenes dentro de los artículos */
+.article-card img {
+    max-width: 200px; /* Tamaño máximo del ancho */
+    max-height: 200px; /* Tamaño máximo del alto */
+    width: auto; /* Ajusta automáticamente el ancho según la proporción */
+    height: auto; /* Ajusta automáticamente el alto según la proporción */
+    object-fit: contain; /* Contiene la imagen sin recortarla */
+    border-radius: 5px; /* Opcional: da bordes redondeados */
+    margin: auto; /* Centra la imagen dentro del artículo */
+    display: block; /* Asegura que se comporte como un bloque */
+    margin-bottom: -10px; /* Espaciado entre la imagen y el contenido */
+}
+/* Divisor entre artículos */
+.article-card {
+    border-bottom: 1px solid #ddd; /* Línea divisoria debajo de cada artículo */
+    padding-bottom: 20px; /* Espaciado interno debajo del contenido */
+    margin-bottom: 20px; /* Espaciado externo entre cada artículo */
+}
+
+/* Ajuste para el último artículo: Sin divisor */
+.article-card:last-child {
+    border-bottom: none; /* Quita la línea divisoria del último artículo */
+}
+
+
+
+
