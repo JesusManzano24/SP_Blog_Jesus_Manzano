@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Personal</title>
+    <link rel="stylesheet" href="stilo1.css">
+</head>
+<body>
+    <header>
+        <h1>Mi Blog Personal</h1>
+    </header>
+    <div class="container">
+        <!-- Botón para agregar el formulario -->
+        <button id="showFormButton">Agregar Artículo</button>
+
+        <!-- Contenedor de artículos (comienza vacío y oculto) -->
+        <div id="articles" class="hidden"></div>
+
+        <!-- Formulario para agregar artículos -->
+        <div id="formContainer" class="hidden">
+            <form id="articleForm">
+                <label for="title">Título del artículo:</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="image">URL de la imagen:</label>
+                <input type="url" id="image" name="image" required>
+
+                <label for="description">Descripción breve:</label>
+                <textarea id="description" name="description" rows="3" required></textarea>
+
+                <label for="author">Nombre del autor:</label>
+                <input type="text" id="author" name="author" required>
+
+                <button type="submit">Guardar Artículo</button>
+                <button type="button" id="cancelFormButton">Cancelar</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

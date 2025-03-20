@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Artículo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Agregar un Nuevo Artículo</h1>
+    </header>
+    <div class="container">
+        <form id="articleForm">
+            <label for="title">Título del artículo:</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="image">URL de la imagen:</label>
+            <input type="url" id="image" name="image" required>
+
+            <label for="description">Descripción breve:</label>
+            <textarea id="description" name="description" rows="3" required></textarea>
+
+            <label for="author">Nombre del autor:</label>
+            <input type="text" id="author" name="author" required>
+
+            <button type="submit">Guardar Artículo</button>
+        </form>
+        <button onclick="goBack()">Volver al Blog</button>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Función para volver a la página principal
+        function goBack() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
